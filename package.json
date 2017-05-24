@@ -1,0 +1,16 @@
+{
+  "name": "rpi-server",
+  "version": "1.0.0",
+  "description": "nodejs server for raspberry pi",
+  "main": "rpi-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node rpi-server.js",
+    "dev": "nodemon rpi-server"
+  },
+  "author": "James J. Hawkins",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
