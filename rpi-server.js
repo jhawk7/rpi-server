@@ -1,4 +1,5 @@
 var http = require("http");
+var handlers = require("./rpi-handlers");
 
 var server = http.createServer(function(request,response){
 	var headers = request.headers;
@@ -6,15 +7,11 @@ var server = http.createServer(function(request,response){
 	var url = request.url;
 
 	if (url === "/") {
-		response.setHeader("Content-Type", "text/html");
-		response.end("<h1>Hello from raspi server<h1>");
+		handlers.homepage(request,response);
 	} else if (url === "/creator") {
-		var creator = {
-			name : "Jarel",
-			age : 25
-		};
-		response.setHeader("Content-Type", "application/json");
-		response.end(JSON.stringify(creator));
+		handlers.creator(request,response);
+	} else {
+		handlers.notFound(request,response);
 	}
 
 });
